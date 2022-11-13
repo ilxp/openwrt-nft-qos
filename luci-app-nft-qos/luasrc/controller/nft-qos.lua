@@ -10,7 +10,6 @@ function index()
 
 	entry({"admin", "status", "realtime", "rate"}, template("nft-qos/rate"), _("Rate"), 5).leaf = true
 	entry({"admin", "status", "realtime", "rate_status"}, call("action_rate")).leaf = true
-	#entry({"admin", "services", "nft-qos"}, cbi("nft-qos/nft-qos"), _("Qos over Nftables"), 60)
 	entry({"admin","QOS"}, firstchild(), "QOS", 90).dependent = false
 	entry({"admin", "QOS", "nft-qos"}, cbi("nft-qos/nft-qos"), _("Qos over Nftables"), 60)
 	
