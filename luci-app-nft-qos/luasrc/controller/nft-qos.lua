@@ -9,7 +9,7 @@ function index()
 	end
 
 	local e
-
+        
 	e = entry({"admin", "status", "realtime", "rate"}, template("nft-qos/rate"), _("Rate"), 5)
 	e.leaf = true
 	e.acl_depends = { "luci-app-nft-qos" }
@@ -17,8 +17,9 @@ function index()
 	e = entry({"admin", "status", "realtime", "rate_status"}, call("action_rate"))
 	e.leaf = true
 	e.acl_depends = { "luci-app-nft-qos" }
-
-	e = entry({"admin", "services", "nft-qos"}, cbi("nft-qos/nft-qos"), _("QoS over Nftables"), 60)
+        
+	e = entry({"admin","QOS"}, firstchild(), "QOS", 88).dependent = false
+	e = entry({"admin", "QOS", "nft-qos"}, cbi("nft-qos/nft-qos"), _("QoS over Nftables"), 60)
 	e.leaf = true
 	e.acl_depends = { "luci-app-nft-qos" }
 end
